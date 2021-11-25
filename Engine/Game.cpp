@@ -120,7 +120,7 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 
-	square.Draw(gfx);
+	circle.Draw(gfx);
 
 	
 }
