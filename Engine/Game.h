@@ -49,5 +49,8 @@ private:
 	Circle circle;
 	Square square;
 	Triangle triangle;
+	bool drawcircle = false;
+	bool drawtriangle = false;
+	bool drawsquare = false;
 	/********************************/
 };

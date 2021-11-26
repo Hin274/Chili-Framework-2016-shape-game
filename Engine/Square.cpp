@@ -6,20 +6,24 @@ void Square::ClampToScreen()
 	if (x < 0)
 	{
 		x = 0;
+		vx = 0;
 	}
 	else if (right >= Graphics::ScreenWidth)
 	{
 		x = (Graphics::ScreenWidth - 1) - width;
+		vx = 0;
 	}
 
 	const int bottom = y + height;
 	if (y < 0)
 	{
 		y = 0;
+		vy = 0;
 	}
 	else if (bottom >= Graphics::ScreenHeight)
 	{
 		y = (Graphics::ScreenHeight - 1) - height;
+		vy = 0;
 	}
 
 }

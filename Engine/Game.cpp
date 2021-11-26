@@ -22,8 +22,10 @@
 #include "Game.h"
 
 
+
  //screen width is 800 screen height is x
 //CTRL+SHIFT+SPACE to see the variables in the function
+//regular expressions replace variables poo([012])x with poo
 
 Game::Game( MainWindow& wnd )
 	:
@@ -42,6 +44,8 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+
+	
 	circle.x = circle.x + circle.vx;
 	circle.y = circle.y + circle.vy;
 
@@ -106,28 +110,158 @@ void Game::UpdateModel()
 		circle.inhibitup = false;
 	}
 
+	circle.ClampToScreen();
+	
 
-	if (wnd.kbd.KeyIsPressed('T'))
+	square.x = square.x + square.vx;
+	square.y = square.y + square.vy;
+
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
 	{
-		triangle.Draw(gfx);
+		if (square.inhibitright) {
+
+		}
+		else {
+			square.vx += 1;
+			square.inhibitright = true;
+		}
 	}
+	else
+	{
+		square.inhibitright = false;
+
+	}
+	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+	{
+		if (square.inhibitleft)
+		{
+
+		}
+		else {
+			square.vx -= 1;
+			square.inhibitleft = true;
+		}
+	}
+	else
+	{
+		square.inhibitleft = false;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+	{
+		if (square.inhibitdown) {
+
+		}
+		else
+		{
+			square.vy += 1;
+			square.inhibitdown = true;
+		}
+	}
+	else {
+
+		square.inhibitdown = false;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		if (square.inhibitup) {
+
+		}
+		else {
+			square.vy -= 1;
+			square.inhibitup = true;
+		}
+	}
+	else {
+
+		square.inhibitup = false;
+	}
+
+	square.ClampToScreen();
+
+	triangle.x = triangle.x + triangle.vx;
+	triangle.y = triangle.y + triangle.vy;
+
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT))
+	{
+		if (triangle.inhibitright) {
+
+		}
+		else {
+			triangle.vx += 1;
+			triangle.inhibitright = true;
+		}
+	}
+	else
+	{
+		triangle.inhibitright = false;
+
+	}
+	if (wnd.kbd.KeyIsPressed(VK_LEFT))
+	{
+		if (triangle.inhibitleft)
+		{
+
+		}
+		else {
+			triangle.vx -= 1;
+			triangle.inhibitleft = true;
+		}
+	}
+	else
+	{
+		triangle.inhibitleft = false;
+	}
+	if (wnd.kbd.KeyIsPressed(VK_DOWN))
+	{
+		if (triangle.inhibitdown) {
+
+		}
+		else
+		{
+			triangle.vy += 1;
+			triangle.inhibitdown = true;
+		}
+	}
+	else {
+
+		triangle.inhibitdown = false;
+	}
+
+	if (wnd.kbd.KeyIsPressed(VK_UP))
+	{
+		if (triangle.inhibitup) {
+
+		}
+		else {
+			triangle.vy -= 1;
+			triangle.inhibitup = true;
+		}
+	}
+	else {
+
+		triangle.inhibitup = false;
+	}
+
+	triangle.ClampToScreen();
+		
+	}
+	
+
+void Game::ComposeFrame()
+{
 
 	if (wnd.kbd.KeyIsPressed('S'))
 	{
 		square.Draw(gfx);
 	}
-
-
-	circle.ClampToScreen();
-	triangle.ClampToScreen();
-	square.ClampToScreen();
-
-}
-
-void Game::ComposeFrame()
-{
-
-	circle.Draw(gfx);
-
+	else if (wnd.kbd.KeyIsPressed('T')) 
+	{
+		triangle.Draw(gfx);
+	}
+	else
+	{
+		circle.Draw(gfx);
+	}
 	
 }
