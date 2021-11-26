@@ -61,3 +61,4 @@ void Circle::Draw(Graphics& gfx) const
 	gfx.PutPixel(x + 2, y + 1, 255, 255, 0);
 		
 }
+

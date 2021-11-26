@@ -20,6 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
+#include <random>
 
 
 
@@ -32,6 +33,16 @@ Game::Game( MainWindow& wnd )
 	wnd( wnd ),
 	gfx( wnd )
 {
+	std::random_device rd;
+	std::mt19937 rng(rd());
+	std::uniform_int_distribution<int>xDist(0, 770);
+	std::uniform_int_distribution<int>yDist(0, 570);
+	redcircle.x = xDist(rng);
+	redcircle.y = yDist(rng);
+	redsquare.x = xDist(rng);
+	redsquare.y = yDist(rng);
+	redtriangle.x = xDist(rng);
+	redtriangle.y = yDist(rng);
 }
 
 void Game::Go()
@@ -245,6 +256,9 @@ void Game::UpdateModel()
 
 	triangle.ClampToScreen();
 		
+
+
+
 	}
 	
 
@@ -264,4 +278,8 @@ void Game::ComposeFrame()
 		circle.Draw(gfx);
 	}
 	
+	redcircle.cDraw(gfx);
+	redtriangle.cDraw(gfx);
+	redsquare.cDraw(gfx);
+
 }

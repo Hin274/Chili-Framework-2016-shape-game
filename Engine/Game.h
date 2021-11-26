@@ -27,6 +27,7 @@
 #include "Circle.h"
 #include "Square.h"
 #include "Triangle.h"
+#include "RedShapes.h"
 
 class Game
 {
@@ -49,8 +50,10 @@ private:
 	Circle circle;
 	Square square;
 	Triangle triangle;
-	bool drawcircle = false;
-	bool drawtriangle = false;
-	bool drawsquare = false;
+	RedShapes redcircle;
+	RedShapes redtriangle;
+	RedShapes redsquare;
+	int x;
+	int y;
 	/********************************/
 };
