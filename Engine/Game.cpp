@@ -107,20 +107,27 @@ void Game::UpdateModel()
 	}
 
 
-	if (wnd.kbd.KeyIsPressed('D'))
+	if (wnd.kbd.KeyIsPressed('T'))
 	{
-		circle.Draw(gfx);
+		triangle.Draw(gfx);
 	}
 
-	circle.ClampToScreen();
+	if (wnd.kbd.KeyIsPressed('S'))
+	{
+		square.Draw(gfx);
+	}
 
+
+	circle.ClampToScreen();
+	triangle.ClampToScreen();
+	square.ClampToScreen();
 
 }
 
 void Game::ComposeFrame()
 {
 
-	triangle.Draw(gfx);
+	circle.Draw(gfx);
 
 	
 }
