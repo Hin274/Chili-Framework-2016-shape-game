@@ -20,7 +20,7 @@
  ******************************************************************************************/
 #include "MainWindow.h"
 #include "Game.h"
-#include "circle.h"
+
 
  //screen width is 800 screen height is x
 //CTRL+SHIFT+SPACE to see the variables in the function
@@ -120,7 +120,7 @@ void Game::UpdateModel()
 void Game::ComposeFrame()
 {
 
-	circle.Draw(gfx);
+	triangle.Draw(gfx);
 
 	
 }

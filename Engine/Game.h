@@ -26,6 +26,7 @@
 #include "car.h"
 #include "Circle.h"
 #include "Square.h"
+#include "Triangle.h"
 
 class Game
 {
@@ -47,5 +48,6 @@ private:
 	/*  User Variables              */
 	Circle circle;
 	Square square;
+	Triangle triangle;
 	/********************************/
 };
