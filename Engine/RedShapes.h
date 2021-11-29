@@ -10,12 +10,22 @@ public:
 	void sDraw(Graphics& gfx) const;
 	void tDraw(Graphics& gfx) const;
 	void collectC(const Circle& circle);
-	int x;
-	int y;
-	int vx;
-	int vy;
-	int width = 10;
-	int height = 10;
+	void collectS(const Square& square);
+	void collectT(const Triangle& triangle);
+	int rcx;
+	int rcy;
+	int rcvx;
+	int rcvy;
+	int rsx;
+	int rsy;
+	int rsvx;
+	int rsvy;
+	int rtx;
+	int rty;
+	int rtvx;
+	int rtvy;
+	static constexpr int width = 10;
+	static constexpr int height = 10;
 	bool collected = false;
 };
 

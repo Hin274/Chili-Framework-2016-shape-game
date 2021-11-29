@@ -53,7 +53,7 @@ private:
 	RedShapes redcircle;
 	RedShapes redtriangle;
 	RedShapes redsquare;
-	int x;
-	int y;
+	int x = 0;
+	int y = 0;
 	/********************************/
 };

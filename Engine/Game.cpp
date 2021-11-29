@@ -34,15 +34,17 @@ Game::Game( MainWindow& wnd )
 	gfx( wnd )
 {
 	std::random_device rd;
-	std::mt19937 rng(rd());
+	std::mt19937 rdc(rd());
+	std::mt19937 rdt(rd());
+	std::mt19937 rds(rd());
 	std::uniform_int_distribution<int>xDist(0, 770);
 	std::uniform_int_distribution<int>yDist(0, 570);
-	redcircle.x = xDist(rng);
-	redcircle.y = yDist(rng);
-	redsquare.x = xDist(rng);
-	redsquare.y = yDist(rng);
-	redtriangle.x = xDist(rng);
-	redtriangle.y = yDist(rng);
+	redcircle.rcx = xDist(rdc);
+	redcircle.rcy = yDist(rdc);
+	redsquare.rsx = xDist(rds);
+	redsquare.rsy = yDist(rds);
+	redtriangle.rtx = xDist(rdt);
+	redtriangle.rty = yDist(rdt);
 }
 
 void Game::Go()
@@ -122,7 +124,7 @@ void Game::UpdateModel()
 	}
 
 	circle.ClampToScreen();
-	
+	redcircle.collectC(circle);
 
 	square.x = square.x + square.vx;
 	square.y = square.y + square.vy;
@@ -189,6 +191,7 @@ void Game::UpdateModel()
 	}
 
 	square.ClampToScreen();
+	redsquare.collectS(square);
 
 	triangle.x = triangle.x + triangle.vx;
 	triangle.y = triangle.y + triangle.vy;
@@ -255,11 +258,11 @@ void Game::UpdateModel()
 	}
 
 	triangle.ClampToScreen();
-		
-
-
+	redtriangle.collectT(triangle);
 
 	}
+
+	
 	
 
 void Game::ComposeFrame()
@@ -278,8 +281,17 @@ void Game::ComposeFrame()
 		circle.Draw(gfx);
 	}
 	
-	redcircle.cDraw(gfx);
-	redtriangle.cDraw(gfx);
-	redsquare.cDraw(gfx);
+	
+	if (!redcircle.collected) {
+		redcircle.cDraw(gfx);
+	}
+		
+	if (!redtriangle.collected) {
+		redtriangle.tDraw(gfx);
+	}
+
+	if (!redsquare.collected) {
+		redsquare.sDraw(gfx);
+	}
 
 }
