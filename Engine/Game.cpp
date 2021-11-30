@@ -124,7 +124,6 @@ void Game::UpdateModel()
 	}
 
 	circle.ClampToScreen();
-	redcircle.collectC(circle);
 
 	square.x = square.x + square.vx;
 	square.y = square.y + square.vy;
@@ -191,7 +190,6 @@ void Game::UpdateModel()
 	}
 
 	square.ClampToScreen();
-	redsquare.collectS(square);
 
 	triangle.x = triangle.x + triangle.vx;
 	triangle.y = triangle.y + triangle.vy;
@@ -258,7 +256,6 @@ void Game::UpdateModel()
 	}
 
 	triangle.ClampToScreen();
-	redtriangle.collectT(triangle);
 
 	}
 
@@ -271,14 +268,17 @@ void Game::ComposeFrame()
 	if (wnd.kbd.KeyIsPressed('S'))
 	{
 		square.Draw(gfx);
+		redsquare.collectS(square);
 	}
 	else if (wnd.kbd.KeyIsPressed('T')) 
 	{
 		triangle.Draw(gfx);
+		redtriangle.collectT(triangle);
 	}
 	else
 	{
 		circle.Draw(gfx);
+		redcircle.collectC(circle);
 	}
 	
 	
