@@ -41,6 +41,8 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
+	void DrawStartGame(int x, int y);
+	void DrawGameOver(int x, int y);
 	/********************************/
 private:
 	MainWindow& wnd;
@@ -53,6 +55,7 @@ private:
 	RedShapes redcircle;
 	RedShapes redtriangle;
 	RedShapes redsquare;
+	bool startGame = false;
 	int x = 0;
 	int y = 0;
 	/********************************/
