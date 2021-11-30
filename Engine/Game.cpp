@@ -32,7 +32,7 @@ Game::Game( MainWindow& wnd )
 	:
 	wnd( wnd ),
 	gfx( wnd )
-{
+{//generates the random placement of the redshapes
 	std::random_device rd;
 	std::mt19937 rdc(rd());
 	std::mt19937 rdt(rd());
@@ -58,7 +58,7 @@ void Game::Go()
 void Game::UpdateModel()
 {
 
-	
+	//circle movement speed up and slow down
 	circle.x = circle.x + circle.vx;
 	circle.y = circle.y + circle.vy;
 
@@ -122,9 +122,10 @@ void Game::UpdateModel()
 
 		circle.inhibitup = false;
 	}
-
+	//circle keeps in screen
 	circle.ClampToScreen();
 
+	//square movement speed up and slow down
 	square.x = square.x + square.vx;
 	square.y = square.y + square.vy;
 
@@ -188,8 +189,10 @@ void Game::UpdateModel()
 
 		square.inhibitup = false;
 	}
-
+	//Keep square in screen
 	square.ClampToScreen();
+
+	//triangle movement speed up and slow down
 
 	triangle.x = triangle.x + triangle.vx;
 	triangle.y = triangle.y + triangle.vy;
@@ -254,7 +257,7 @@ void Game::UpdateModel()
 
 		triangle.inhibitup = false;
 	}
-
+	//keep triangle in screen
 	triangle.ClampToScreen();
 
 	}
@@ -264,24 +267,26 @@ void Game::UpdateModel()
 
 void Game::ComposeFrame()
 {
-
+	//change shape and collect square
 	if (wnd.kbd.KeyIsPressed('S'))
 	{
 		square.Draw(gfx);
 		redsquare.collectS(square);
 	}
+	//change shape and collect triangle
 	else if (wnd.kbd.KeyIsPressed('T')) 
 	{
 		triangle.Draw(gfx);
 		redtriangle.collectT(triangle);
 	}
+	//stay in circle shape and collect
 	else
 	{
 		circle.Draw(gfx);
 		redcircle.collectC(circle);
 	}
 	
-	
+	//Draws the red circle, square and triangle until its collected
 	if (!redcircle.collected) {
 		redcircle.cDraw(gfx);
 	}
