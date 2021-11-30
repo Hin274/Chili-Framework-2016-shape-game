@@ -33,6 +33,37 @@ void RedShapes::cDraw(Graphics& gfx) const
 
 }
 
+void RedShapes::cMovement()
+{
+	rcx += rcvx;
+	rcy += rcvy;
+
+	const int right = rcx + width;
+	if (rcx < 0)
+	{
+		rcx = 0;
+		rcvx = -rcvx;
+	}
+	else if (right >= Graphics::ScreenWidth)
+	{
+		rcx = (Graphics::ScreenWidth - 1) - width;
+		rcvx = -rcvx;
+	}
+
+	const int bottom = rcy + height;
+	if (rcy < 0)
+	{
+		rcy = 0;
+		rcvy = -rcvy;
+	}
+	else if (bottom >= Graphics::ScreenHeight)
+	{
+		rcy = (Graphics::ScreenHeight - 1) - height;
+		rcvy = -rcvy;
+	}
+
+}
+
 void RedShapes::sDraw(Graphics& gfx) const
 {
 	gfx.PutPixel(rsx + 0, rsy + 0, 255, 0, 0);
@@ -78,6 +109,37 @@ void RedShapes::sDraw(Graphics& gfx) const
 	gfx.PutPixel(rsx + 0, rsy + 0, 255, 0, 0);
 }
 
+void RedShapes::sMovement()
+{
+	rsx += rsvx;
+	rsy += rsvy;
+
+	const int right = rsx + width;
+	if (rsx < 0)
+	{
+		rsx = 0;
+		rsvx = -rsvx;
+	}
+	else if (right >= Graphics::ScreenWidth)
+	{
+		rsx = (Graphics::ScreenWidth - 1) - width;
+		rsvx = -rsvx;
+	}
+
+	const int bottom = rsy + height;
+	if (rsy < 0)
+	{
+		rsy = 0;
+		rsvy = -rsvy;
+	}
+	else if (bottom >= Graphics::ScreenHeight)
+	{
+		rsy = (Graphics::ScreenHeight - 1) - height;
+		rsvy = -rsvy;
+	}
+
+}
+
 void RedShapes::tDraw(Graphics& gfx) const
 {
 
@@ -111,6 +173,37 @@ void RedShapes::tDraw(Graphics& gfx) const
 	gfx.PutPixel(rtx + 6.5, rty + 3, 255, 0, 0);
 	gfx.PutPixel(rtx + 6, rty + 2, 255, 0, 0);
 	gfx.PutPixel(rtx + 5.5, rty + 1, 255, 0, 0);
+}
+
+void RedShapes::tMovement()
+{
+	rtx += rtvx;
+	rty += rtvy;
+
+	const int right = rtx + width;
+	if (rtx < 0)
+	{
+		rtx = 0;
+		rtvx = -rtvx;
+	}
+	else if (right >= Graphics::ScreenWidth)
+	{
+		rtx = (Graphics::ScreenWidth - 1) - width;
+		rtvx = -rtvx;
+	}
+
+	const int bottom = rty + height;
+	if (rty < 0)
+	{
+		rty = 0;
+		rtvy = -rtvy;
+	}
+	else if (bottom >= Graphics::ScreenHeight)
+	{
+		rty = (Graphics::ScreenHeight - 1) - height;
+		rtvy = -rtvy;
+	}
+
 }
 
 void RedShapes::collectC(const Circle&circle)

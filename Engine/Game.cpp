@@ -45,6 +45,13 @@ Game::Game( MainWindow& wnd )
 	redsquare.rsy = yDist(rds);
 	redtriangle.rtx = xDist(rdt);
 	redtriangle.rty = yDist(rdt);
+	redcircle.rcvx = 1;
+	redcircle.rcvy = 1;
+	redsquare.rsvx = 1;
+	redsquare.rsvy = 1;
+	redtriangle.rtvx = -1;
+	redtriangle.rtvy = -1;
+
 }
 
 void Game::Go()
@@ -260,10 +267,13 @@ void Game::UpdateModel()
 	//keep triangle in screen
 	triangle.ClampToScreen();
 
+	
+	redcircle.cMovement();
+	redsquare.sMovement();
+	redtriangle.tMovement();
+
 	}
 
-	
-	
 
 void Game::ComposeFrame()
 {

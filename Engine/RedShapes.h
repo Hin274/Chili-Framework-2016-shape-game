@@ -9,11 +9,15 @@ class RedShapes
 {
 public:
 	void cDraw(Graphics& gfx) const;
+	void cMovement();
 	void sDraw(Graphics& gfx) const;
+	void sMovement();
 	void tDraw(Graphics& gfx) const;
+	void tMovement();
 	void collectC(const Circle& circle);
 	void collectS(const Square& square);
 	void collectT(const Triangle& triangle);
+	
 	int rcx;
 	int rcy;
 	int rcvx;
