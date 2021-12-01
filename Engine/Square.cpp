@@ -73,3 +73,90 @@ void Square::Draw(Graphics& gfx) const
 	gfx.PutPixel(x + 0, y + 1, 255, 255, 0);
 	gfx.PutPixel(x + 0, y + 0, 255, 255, 0);
 }
+
+int Square::GetX() const
+{
+	return x;
+}
+
+int Square::GetY() const
+{
+	return y;
+}
+
+int Square::GetWidth() const
+{
+	return width;
+}
+
+int Square::GetHeight() const
+{
+	return height;
+}
+
+void Square::Control(const Keyboard& kbd)
+{
+	x = x + vx;
+	y = y + vy;
+
+	if (kbd.KeyIsPressed(VK_RIGHT))
+	{
+		if (inhibitright) {
+
+		}
+		else {
+			vx += 1;
+			inhibitright = true;
+		}
+	}
+	else
+	{
+		inhibitright = false;
+
+	}
+	if (kbd.KeyIsPressed(VK_LEFT))
+	{
+		if (inhibitleft)
+		{
+
+		}
+		else {
+			vx -= 1;
+			inhibitleft = true;
+		}
+	}
+	else
+	{
+		inhibitleft = false;
+	}
+	if (kbd.KeyIsPressed(VK_DOWN))
+	{
+		if (inhibitdown) {
+
+		}
+		else
+		{
+			vy += 1;
+			inhibitdown = true;
+		}
+	}
+	else {
+
+		inhibitdown = false;
+	}
+
+	if (kbd.KeyIsPressed(VK_UP))
+	{
+		if (inhibitup) {
+
+		}
+		else {
+			vy -= 1;
+			inhibitup = true;
+		}
+	}
+	else {
+
+		inhibitup = false;
+	}
+}

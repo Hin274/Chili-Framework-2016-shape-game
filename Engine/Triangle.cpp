@@ -62,6 +62,93 @@ void Triangle::Draw(Graphics& gfx) const
 	
 }
 
+int Triangle::GetX() const
+{
+	return x;
+}
+
+int Triangle::GetY() const
+{
+	return y;
+}
+
+int Triangle::GetWidth() const
+{
+	return width;
+}
+
+int Triangle::GetHeight() const
+{
+	return height;
+}
+
+void Triangle::Control(const Keyboard& kbd)
+{
+	x = x + vx;
+	y = y + vy;
+
+	if (kbd.KeyIsPressed(VK_RIGHT))
+	{
+		if (inhibitright) {
+
+		}
+		else {
+			vx += 1;
+			inhibitright = true;
+		}
+	}
+	else
+	{
+		inhibitright = false;
+
+	}
+	if (kbd.KeyIsPressed(VK_LEFT))
+	{
+		if (inhibitleft)
+		{
+
+		}
+		else {
+			vx -= 1;
+			inhibitleft = true;
+		}
+	}
+	else
+	{
+		inhibitleft = false;
+	}
+	if (kbd.KeyIsPressed(VK_DOWN))
+	{
+		if (inhibitdown) {
+
+		}
+		else
+		{
+			vy += 1;
+			inhibitdown = true;
+		}
+	}
+	else {
+
+		inhibitdown = false;
+	}
+
+	if (kbd.KeyIsPressed(VK_UP))
+	{
+		if (inhibitup) {
+
+		}
+		else {
+			vy -= 1;
+			inhibitup = true;
+		}
+	}
+	else {
+
+		inhibitup = false;
+	}
+}
+
 
 
 

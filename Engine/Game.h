@@ -23,11 +23,13 @@
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
-#include "car.h"
 #include "Circle.h"
 #include "Square.h"
 #include "Triangle.h"
-#include "RedShapes.h"
+#include "RedCircle.h"
+#include "RedSquare.h"
+#include "RedTriangle.h"
+#include <random>
 
 class Game
 {
@@ -49,14 +51,20 @@ private:
 	Graphics gfx;
 	/********************************/
 	/*  User Variables              */
+	std::random_device rd;
+	std::mt19937 rdc;
+	std::mt19937 rdt;
+	std::mt19937 rds;
+	std::uniform_int_distribution<int>xDist;
+	std::uniform_int_distribution<int>yDist;
 	Circle circle;
 	Square square;
 	Triangle triangle;
-	RedShapes redcircle;
-	RedShapes redtriangle;
-	RedShapes redsquare;
+	RedCircle redcircle;
+	RedTriangle redtriangle;
+	RedSquare redsquare;
 	bool startGame = false;
-	int x = 0;
-	int y = 0;
+	/*int x = 0;
+	int y = 0;*/
 	/********************************/
 };

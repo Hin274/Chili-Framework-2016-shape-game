@@ -62,3 +62,92 @@ void Circle::Draw(Graphics& gfx) const
 		
 }
 
+int Circle::GetX() const
+{
+	return x;
+}
+
+int Circle::GetY() const
+{
+	return y;
+}
+
+int Circle::GetWidth() const
+{
+	return width;
+}
+
+int Circle::GetHeight() const
+{
+	return height;
+}
+
+void Circle::Control(const Keyboard& kbd)
+{
+	x = x + vx;
+	y = y + vy;
+
+	if (kbd.KeyIsPressed(VK_RIGHT))
+	{
+		if (inhibitright) {
+
+		}
+		else {
+			vx += 1;
+			inhibitright = true;
+		}
+	}
+	else
+	{
+		inhibitright = false;
+
+	}
+	if (kbd.KeyIsPressed(VK_LEFT))
+	{
+		if (inhibitleft)
+		{
+
+		}
+		else {
+			vx -= 1;
+			inhibitleft = true;
+		}
+	}
+	else
+	{
+		inhibitleft = false;
+	}
+	if (kbd.KeyIsPressed(VK_DOWN))
+	{
+		if (inhibitdown) {
+
+		}
+		else
+		{
+			vy += 1;
+			inhibitdown = true;
+		}
+	}
+	else {
+
+		inhibitdown = false;
+	}
+
+	if (kbd.KeyIsPressed(VK_UP))
+	{
+		if (inhibitup) {
+
+		}
+		else {
+			vy -= 1;
+			inhibitup = true;
+		}
+	}
+	else {
+
+		inhibitup = false;
+	}
+
+
+}
+

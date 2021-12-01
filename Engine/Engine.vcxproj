@@ -147,7 +147,9 @@
     <ClInclude Include="Keyboard.h" />
     <ClInclude Include="MainWindow.h" />
     <ClInclude Include="Mouse.h" />
-    <ClInclude Include="RedShapes.h" />
+    <ClInclude Include="RedCircle.h" />
+    <ClInclude Include="RedSquare.h" />
+    <ClInclude Include="RedTriangle.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Reticle.h" />
     <ClInclude Include="Square.h" />
@@ -163,7 +165,9 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MainWindow.cpp" />
     <ClCompile Include="Mouse.cpp" />
-    <ClCompile Include="RedShapes.cpp" />
+    <ClCompile Include="RedCircle.cpp" />
+    <ClCompile Include="RedSquare.cpp" />
+    <ClCompile Include="RedTriangle.cpp" />
     <ClCompile Include="Reticle.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Triangle.cpp" />
