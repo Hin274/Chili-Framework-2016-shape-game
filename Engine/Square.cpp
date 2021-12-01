@@ -2,6 +2,7 @@
 
 void Square::ClampToScreen()
 {
+	//Keep square in screen
 	const int right = x + width;
 	if (x < 0)
 	{
@@ -96,6 +97,7 @@ int Square::GetHeight() const
 
 void Square::Control(const Keyboard& kbd)
 {
+	//square movement speed up and slow down
 	x = x + vx;
 	y = y + vy;
 

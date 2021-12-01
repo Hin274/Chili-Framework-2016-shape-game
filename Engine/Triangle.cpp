@@ -2,6 +2,7 @@
 
 void Triangle::ClampToScreen()
 {
+	//keep triangle in screen
 	const int right = x + width;
 	if (x < 0)
 	{
@@ -84,6 +85,7 @@ int Triangle::GetHeight() const
 
 void Triangle::Control(const Keyboard& kbd)
 {
+	//triangle movement speed up and slow down
 	x = x + vx;
 	y = y + vy;
 

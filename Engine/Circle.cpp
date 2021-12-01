@@ -2,6 +2,7 @@
 
 void Circle::ClampToScreen()
 {
+	//circle keeps in screen
 	const int right = x + width;
 	if (x < 0)
 	{
@@ -84,6 +85,7 @@ int Circle::GetHeight() const
 
 void Circle::Control(const Keyboard& kbd)
 {
+	//circle movement speed up and slow down
 	x = x + vx;
 	y = y + vy;
 

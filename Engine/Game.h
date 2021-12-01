@@ -64,7 +64,5 @@ private:
 	RedTriangle redtriangle;
 	RedSquare redsquare;
 	bool startGame = false;
-	/*int x = 0;
-	int y = 0;*/
 	/********************************/
 };
