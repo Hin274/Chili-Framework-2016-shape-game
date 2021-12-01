@@ -1,8 +1,6 @@
 #pragma once
 #include "Graphics.h"
 #include "Circle.h"
-#include "Square.h"
-#include "Triangle.h"
 
 
 class RedCircle

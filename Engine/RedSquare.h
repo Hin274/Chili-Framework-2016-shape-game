@@ -1,5 +1,6 @@
 #pragma once
 #include "Square.h"
+#include "Graphics.h"
 
 class RedSquare
 {
