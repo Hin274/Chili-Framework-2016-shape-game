@@ -137,7 +137,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
-    <ClInclude Include="car.h" />
     <ClInclude Include="ChiliException.h" />
     <ClInclude Include="ChiliWin.h" />
     <ClInclude Include="Colors.h" />
@@ -149,6 +148,7 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="RedCircle.h" />
     <ClInclude Include="RedSquare.h" />
+    <ClInclude Include="RedStar.h" />
     <ClInclude Include="RedTriangle.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Reticle.h" />
@@ -157,7 +157,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
-    <ClCompile Include="car.cpp" />
     <ClCompile Include="DXErr.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Graphics.cpp" />
@@ -167,6 +166,7 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="RedCircle.cpp" />
     <ClCompile Include="RedSquare.cpp" />
+    <ClCompile Include="RedStar.cpp" />
     <ClCompile Include="RedTriangle.cpp" />
     <ClCompile Include="Reticle.cpp" />
     <ClCompile Include="Square.cpp" />

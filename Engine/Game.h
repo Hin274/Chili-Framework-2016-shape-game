@@ -30,6 +30,7 @@
 #include "RedSquare.h"
 #include "RedTriangle.h"
 #include <random>
+#include "RedStar.h"
 
 class Game
 {
@@ -55,6 +56,7 @@ private:
 	std::mt19937 rdc;
 	std::mt19937 rdt;
 	std::mt19937 rds;
+	std::mt19937 rdst;
 	std::uniform_int_distribution<int>xDist;
 	std::uniform_int_distribution<int>yDist;
 	std::uniform_int_distribution<int>vDist;
@@ -67,7 +69,11 @@ private:
 	RedTriangle redtriangle[nrt];
 	static constexpr int nrs = 3;
 	RedSquare redsquare[nrs];
+	static constexpr int nrst = 2;
+	RedStar redstar[nrst];
 	bool startGame = false;
-	
+	bool gameOver = false;
+	bool allcollide = true;
+	bool allCollected = true;
 	/********************************/
 };
