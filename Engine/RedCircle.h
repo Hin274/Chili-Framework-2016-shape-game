@@ -6,7 +6,7 @@
 class RedCircle
 {
 public:
-	RedCircle(int m_x, int m_y, int m_vx, int m_vy);
+	void Init(int in_x, int in_y, int in_vx, int in_vy);
 	void Draw(Graphics& gfx) const;
 	void Movement();
 	void collect(const Circle& circle);

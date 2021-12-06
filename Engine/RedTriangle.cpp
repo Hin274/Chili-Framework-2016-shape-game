@@ -1,11 +1,11 @@
 #include "RedTriangle.h"
 
-RedTriangle::RedTriangle(int m_x, int m_y, int m_vx, int m_vy)
+void RedTriangle::Init(int in_x, int in_y, int in_vx, int in_vy)
 {
-	x = m_x;
-	y = m_y;
-	vx = m_vx;
-	vy = m_vy;
+	x = in_x;
+	y = in_y;
+	vx = in_vx;
+	vy = in_vy;
 }
 
 void RedTriangle::Draw(Graphics& gfx) const

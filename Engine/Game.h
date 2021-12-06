@@ -57,12 +57,17 @@ private:
 	std::mt19937 rds;
 	std::uniform_int_distribution<int>xDist;
 	std::uniform_int_distribution<int>yDist;
+	std::uniform_int_distribution<int>vDist;
 	Circle circle;
 	Square square;
 	Triangle triangle;
-	RedCircle redcircle;
-	RedTriangle redtriangle;
-	RedSquare redsquare;
+	static constexpr int nrc = 3;
+	RedCircle redcircle[nrc];
+	static constexpr int nrt = 3;
+	RedTriangle redtriangle[nrt];
+	static constexpr int nrs = 3;
+	RedSquare redsquare[nrs];
 	bool startGame = false;
+	
 	/********************************/
 };
