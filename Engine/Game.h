@@ -63,17 +63,17 @@ private:
 	Circle circle;
 	Square square;
 	Triangle triangle;
-	static constexpr int nrc = 3;
+	static constexpr int nrc = 1;
 	RedCircle redcircle[nrc];
-	static constexpr int nrt = 3;
+	static constexpr int nrt = 1;
 	RedTriangle redtriangle[nrt];
-	static constexpr int nrs = 3;
+	static constexpr int nrs = 1;
 	RedSquare redsquare[nrs];
-	static constexpr int nrst = 2;
+	static constexpr int nrst = 1;
 	RedStar redstar[nrst];
 	bool startGame = false;
 	bool gameOver = false;
 	bool allcollide = true;
-	bool allCollected = true;
+	
 	/********************************/
 };
