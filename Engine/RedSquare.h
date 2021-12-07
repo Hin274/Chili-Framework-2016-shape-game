@@ -8,7 +8,7 @@ public:
 	void Init(int in_x, int in_y, int in_vx, int in_vy);
 	void Draw(Graphics& gfx) const;
 	void Movement();
-	void collect(const Square& square);
+	bool collect(const Square& square);
 	bool Collected() const;
 private:
 	int x;

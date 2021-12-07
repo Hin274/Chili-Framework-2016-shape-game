@@ -31,6 +31,7 @@
 #include "RedTriangle.h"
 #include <random>
 #include "RedStar.h"
+#include "ProgressBar.h"
 
 class Game
 {
@@ -71,6 +72,7 @@ private:
 	RedSquare redsquare[nrs];
 	static constexpr int nrst = 1;
 	RedStar redstar[nrst];
+	ProgressBar progressbar;
 	bool startGame = false;
 	bool gameOver = false;
 	bool allcollide = true;

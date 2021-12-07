@@ -9,7 +9,8 @@ public:
 	void Init(int in_x, int in_y, int in_vx, int in_vy);
 	void Draw(Graphics& gfx) const;
 	void Movement();
-	void collect(const Circle& circle);
+	//void collect(const Circle& circle);
+	bool collect(const Circle& circle);
 	bool Collected() const;
 private:
 	int x;

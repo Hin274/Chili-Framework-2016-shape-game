@@ -73,24 +73,37 @@ void RedCircle::Movement()
 
 }
 
-void RedCircle::collect(const Circle&circle)
+//void RedCircle::collect(const Circle&circle)
+//{
+//	const int circleright = circle.GetX() + circle.GetWidth();
+//	const int circlebottom = circle.GetY() + circle.GetHeight();
+//	const int redcircleright = x + width;
+//	const int redcirclebottom = y + height;
+//
+//	if (
+//		circleright >= x &&
+//		circle.GetX() <= redcircleright &&
+//		circlebottom >= y &&
+//		circle.GetY() <= redcirclebottom)
+//	{
+//		collected = true;
+//	}
+//
+//}
+
+bool RedCircle::collect(const Circle& circle)
 {
 	const int circleright = circle.GetX() + circle.GetWidth();
 	const int circlebottom = circle.GetY() + circle.GetHeight();
 	const int redcircleright = x + width;
 	const int redcirclebottom = y + height;
 
-	if (
+	return
 		circleright >= x &&
 		circle.GetX() <= redcircleright &&
 		circlebottom >= y &&
-		circle.GetY() <= redcirclebottom)
-	{
-		collected = true;
-	}
-
+		circle.GetY() <= redcirclebottom;
 }
-
 
 bool RedCircle::Collected() const
 {

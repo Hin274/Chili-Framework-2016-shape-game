@@ -84,22 +84,18 @@ void RedSquare::Movement()
 
 }
 
-void RedSquare::collect(const Square& square)
+bool RedSquare::collect(const Square& square)
 {
 	const int squareright = square.GetX() + square.GetWidth();
 	const int squarebottom = square.GetY() + square.GetHeight();
 	const int redsquareright = x + width;
 	const int redsquarebottom = y + height;
 
-	if (
+	return
 		squareright >= x &&
 		square.GetX() <= redsquareright &&
 		squarebottom >= y &&
-		square.GetY() <= redsquarebottom)
-	{
-		collected = true;
-	}
-
+		square.GetY() <= redsquarebottom;
 }
 
 bool RedSquare::Collected() const
