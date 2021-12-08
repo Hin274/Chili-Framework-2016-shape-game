@@ -74,6 +74,24 @@ void RedTriangle::Movement()
 
 }
 
+void RedTriangle::collection(const Triangle& triangle)
+{
+	const int triangleright = triangle.GetX() + triangle.GetWidth();
+	const int trianglebottom = triangle.GetY() + triangle.GetHeight();
+	const int redtriangleright = x + width;
+	const int redtrianglebottom = y + height;
+
+	if (
+		triangleright >= x &&
+		triangle.GetX() <= redtriangleright &&
+		trianglebottom >= y &&
+		triangle.GetY() <= redtrianglebottom
+		)
+	{
+		collected = true;
+	}
+}
+
 bool RedTriangle::collect(const Triangle& triangle)
 {
 	const int triangleright = triangle.GetX() + triangle.GetWidth();
