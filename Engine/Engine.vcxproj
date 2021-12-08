@@ -152,7 +152,6 @@
     <ClInclude Include="RedStar.h" />
     <ClInclude Include="RedTriangle.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="Reticle.h" />
     <ClInclude Include="Square.h" />
     <ClInclude Include="Triangle.h" />
   </ItemGroup>
@@ -170,7 +169,6 @@
     <ClCompile Include="RedSquare.cpp" />
     <ClCompile Include="RedStar.cpp" />
     <ClCompile Include="RedTriangle.cpp" />
-    <ClCompile Include="Reticle.cpp" />
     <ClCompile Include="Square.cpp" />
     <ClCompile Include="Triangle.cpp" />
   </ItemGroup>
