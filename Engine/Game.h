@@ -76,6 +76,6 @@ private:
 	bool startGame = false;
 	bool gameOver = false;
 	bool allcollide = true;
-	
+	int totalcollected = 0;
 	/********************************/
 };
