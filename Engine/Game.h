@@ -47,6 +47,7 @@ private:
 	/*  User Functions              */
 	void DrawStartGame(int x, int y);
 	void DrawGameOver(int x, int y);
+	void DrawGameFinish(int x, int y);
 	/********************************/
 private:
 	MainWindow& wnd;
@@ -64,18 +65,18 @@ private:
 	Circle circle;
 	Square square;
 	Triangle triangle;
-	static constexpr int nrc = 1;
+	static constexpr int nrc = 3;
 	RedCircle redcircle[nrc];
-	static constexpr int nrt = 1;
+	static constexpr int nrt = 3;
 	RedTriangle redtriangle[nrt];
-	static constexpr int nrs = 1;
+	static constexpr int nrs = 3;
 	RedSquare redsquare[nrs];
-	static constexpr int nrst = 1;
+	static constexpr int nrst = 10;
 	RedStar redstar[nrst];
 	ProgressBar progressbar;
 	bool startGame = false;
 	bool gameOver = false;
 	bool allcollide = true;
-	
+	int totalcollected = 0;
 	/********************************/
 };
