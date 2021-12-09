@@ -32,6 +32,7 @@
 #include <random>
 #include "RedStar.h"
 #include "ProgressBar.h"
+#include "DrawGameTitles.h"
 
 class Game
 {
@@ -45,9 +46,6 @@ private:
 	void UpdateModel();
 	/********************************/
 	/*  User Functions              */
-	void DrawStartGame(int x, int y);
-	void DrawGameOver(int x, int y);
-	void DrawGameFinish(int x, int y);
 	/********************************/
 private:
 	MainWindow& wnd;

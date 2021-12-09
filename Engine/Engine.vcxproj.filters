@@ -72,6 +72,9 @@
     <ClInclude Include="ProgressBar.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DrawGameTitles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DXErr.cpp">
@@ -117,6 +120,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ProgressBar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawGameTitles.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
