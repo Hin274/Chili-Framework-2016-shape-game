@@ -1,6 +1,6 @@
 #include "RedSquare.h"
 
-void RedSquare::Init(int in_x, int in_y, int in_vx, int in_vy)
+void RedSquare::Init(float in_x, float in_y, float in_vx, float in_vy)
 {
 	x = in_x;
 	y = in_y;
@@ -10,47 +10,50 @@ void RedSquare::Init(int in_x, int in_y, int in_vx, int in_vy)
 
 void RedSquare::Draw(Graphics& gfx) const
 {
-	gfx.PutPixel(x + 0, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 1, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 2, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 3, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 4, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 5, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 6, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 7, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 8, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 9, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 0, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 1, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 2, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 3, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 4, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 5, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 6, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 7, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 8, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 9, 255, 0, 0);
-	gfx.PutPixel(x + 10, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 9, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 8, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 7, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 6, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 5, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 4, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 3, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 2, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 1, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 10, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 9, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 8, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 7, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 6, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 5, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 4, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 3, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 2, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 1, 255, 0, 0);
-	gfx.PutPixel(x + 0, y + 0, 255, 0, 0);
+	const int x_int = int(x);
+	const int y_int = int(y);
+
+	gfx.PutPixel(x_int + 0, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 1, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 2, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 3, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 4, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 5, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 6, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 7, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 8, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 9, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 0, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 1, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 2, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 3, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 4, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 5, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 6, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 7, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 8, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 9, 255, 0, 0);
+	gfx.PutPixel(x_int + 10, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 9, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 8, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 7, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 6, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 5, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 4, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 3, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 2, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 1, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 10, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 9, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 8, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 7, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 6, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 5, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 4, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 3, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 2, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 1, 255, 0, 0);
+	gfx.PutPixel(x_int + 0, y_int + 0, 255, 0, 0);
 }
 
 void RedSquare::Movement()
@@ -58,15 +61,15 @@ void RedSquare::Movement()
 	x += vx;
 	y += vy;
 
-	const int right = x + width;
+	const float right = x + width;
 	if (x < 0)
 	{
 		x = 0;
 		vx = -vx;
 	}
-	else if (right >= Graphics::ScreenWidth)
+	else if (right >= float(Graphics::ScreenWidth))
 	{
-		x = (Graphics::ScreenWidth - 1) - width;
+		x = float(Graphics::ScreenWidth - 1) - width;
 		vx = -vx;
 	}
 
@@ -76,9 +79,9 @@ void RedSquare::Movement()
 		y = 0;
 		vy = -vy;
 	}
-	else if (bottom >= Graphics::ScreenHeight)
+	else if (bottom >= float( Graphics::ScreenHeight))
 	{
-		y = (Graphics::ScreenHeight - 1) - height;
+		y = float (Graphics::ScreenHeight - 1) - height;
 		vy = -vy;
 	}
 
@@ -86,10 +89,10 @@ void RedSquare::Movement()
 
 void RedSquare::collection(const Square& square)
 {
-	const int squareright = square.GetX() + square.GetWidth();
-	const int squarebottom = square.GetY() + square.GetHeight();
-	const int redsquareright = x + width;
-	const int redsquarebottom = y + height;
+	const float squareright = square.GetX() + square.GetWidth();
+	const float squarebottom = square.GetY() + square.GetHeight();
+	const float redsquareright = x + width;
+	const float redsquarebottom = y + height;
 
 	if (
 		squareright >= x &&
@@ -104,10 +107,10 @@ void RedSquare::collection(const Square& square)
 
 bool RedSquare::collect(const Square& square)
 {
-	const int squareright = square.GetX() + square.GetWidth();
-	const int squarebottom = square.GetY() + square.GetHeight();
-	const int redsquareright = x + width;
-	const int redsquarebottom = y + height;
+	const float squareright = square.GetX() + square.GetWidth();
+	const float squarebottom = square.GetY() + square.GetHeight();
+	const float redsquareright = x + width;
+	const float redsquarebottom = y + height;
 
 	return
 		squareright >= x &&

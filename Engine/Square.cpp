@@ -3,27 +3,27 @@
 void Square::ClampToScreen()
 {
 	//Keep square in screen
-	const int right = x + width;
+	const float right = x + width;
 	if (x < 0)
 	{
 		x = 0;
 		vx = 0;
 	}
-	else if (right >= Graphics::ScreenWidth)
+	else if (right >= float(Graphics::ScreenWidth))
 	{
-		x = (Graphics::ScreenWidth - 1) - width;
+		x = float (Graphics::ScreenWidth - 1) - width;
 		vx = 0;
 	}
 
-	const int bottom = y + height;
+	const float bottom = y + height;
 	if (y < 0)
 	{
 		y = 0;
 		vy = 0;
 	}
-	else if (bottom >= Graphics::ScreenHeight)
+	else if (bottom >= float(Graphics::ScreenHeight))
 	{
-		y = (Graphics::ScreenHeight - 1) - height;
+		y = float (Graphics::ScreenHeight - 1) - height;
 		vy = 0;
 	}
 
@@ -75,22 +75,22 @@ void Square::Draw(Graphics& gfx) const
 	gfx.PutPixel(x + 0, y + 0, 255, 255, 0);
 }
 
-int Square::GetX() const
+float Square::GetX() const
 {
 	return x;
 }
 
-int Square::GetY() const
+float Square::GetY() const
 {
 	return y;
 }
 
-int Square::GetWidth() const
+float Square::GetWidth() const
 {
 	return width;
 }
 
-int Square::GetHeight() const
+float Square::GetHeight() const
 {
 	return height;
 }

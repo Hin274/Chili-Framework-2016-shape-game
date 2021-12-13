@@ -7,19 +7,19 @@
 class RedStar
 {
 public:
-	void Init(int in_x, int in_y, int in_vx, int in_vy);
+	void Init(float in_x, float in_y, float in_vx, float in_vy);
 	void Draw(Graphics& gfx) const;
 	void Movement();
 	bool Collide(const Circle& circle);
 	bool Collide(const Square& square);
 	bool Collide(const Triangle& triangle);
 private:
-	int x;
-	int y;
-	int vx;
-	int vy;
-	static constexpr int width = 24;
-	static constexpr int height = 20;
+	float x;
+	float y;
+	float vx;
+	float vy;
+	static constexpr float width = 24.0f;
+	static constexpr float height = 20.0f;
 	
 };
 

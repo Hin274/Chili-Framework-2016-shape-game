@@ -1,7 +1,7 @@
 #include "RedStar.h"
 #include "Circle.h"
 
-void RedStar::Init(int in_x, int in_y, int in_vx, int in_vy)
+void RedStar::Init(float in_x, float in_y, float in_vx, float in_vy)
 {
 	x = in_x;
 	y = in_y;
@@ -544,27 +544,27 @@ void RedStar::Movement()
 	x += vx;
 	y += vy;
 
-	const int right = x + width;
+	const float right = x + width;
 	if (x < 0)
 	{
 		x = 0;
 		vx = -vx;
 	}
-	else if (right >= Graphics::ScreenWidth)
+	else if (right >= float( Graphics::ScreenWidth))
 	{
-		x = (Graphics::ScreenWidth - 1) - width;
+		x = float(Graphics::ScreenWidth - 1) - width;
 		vx = -vx;
 	}
 
-	const int bottom = y + height;
+	const float bottom = y + height;
 	if (y < 0)
 	{
 		y = 0;
 		vy = -vy;
 	}
-	else if (bottom >= Graphics::ScreenHeight)
+	else if (bottom >= float( Graphics::ScreenHeight))
 	{
-		y = (Graphics::ScreenHeight - 1) - height;
+		y = float (Graphics::ScreenHeight - 1) - height;
 		vy = -vy;
 	}
 
@@ -572,10 +572,10 @@ void RedStar::Movement()
 
 bool RedStar::Collide(const Circle& circle)
 {
-	const int circleright = circle.GetX() + circle.GetWidth();
-	const int circlebottom = circle.GetY() + circle.GetHeight();
-	const int redstarright = x + width;
-	const int redstarbottom = y + height;
+	const float circleright = circle.GetX() + circle.GetWidth();
+	const float circlebottom = circle.GetY() + circle.GetHeight();
+	const float redstarright = x + width;
+	const float redstarbottom = y + height;
 
 	return
 		circleright >= x &&
@@ -586,10 +586,10 @@ bool RedStar::Collide(const Circle& circle)
 
 bool RedStar::Collide(const Square& square)
 {
-	const int squareright = square.GetX() + square.GetWidth();
-	const int squarebottom = square.GetY() + square.GetHeight();
-	const int redstarright = x + width;
-	const int redstarbottom = y + height;
+	const float squareright = square.GetX() + square.GetWidth();
+	const float squarebottom = square.GetY() + square.GetHeight();
+	const float redstarright = x + width;
+	const float redstarbottom = y + height;
 
 	return
 		squareright >= x &&
@@ -600,10 +600,10 @@ bool RedStar::Collide(const Square& square)
 
 bool RedStar::Collide(const Triangle& triangle)
 {
-	const int triangleright = triangle.GetX() + triangle.GetWidth();
-	const int trianglebottom = triangle.GetY() + triangle.GetHeight();
-	const int redstarright = x + width;
-	const int redstarbottom = y + height;
+	const float triangleright = triangle.GetX() + triangle.GetWidth();
+	const float trianglebottom = triangle.GetY() + triangle.GetHeight();
+	const float redstarright = x + width;
+	const float redstarbottom = y + height;
 
 	return
 		triangleright >= x &&

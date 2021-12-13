@@ -39,7 +39,7 @@ Game::Game( MainWindow& wnd )
 	rdst(rd()),
 	xDist(0,770),
 	yDist(0,570),
-	vDist(-1,1),
+	vDist(-2.5f,2.5f),
 	progressbar(20,20)
 	
 

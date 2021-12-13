@@ -3,15 +3,15 @@
 void Circle::ClampToScreen()
 {
 	//circle keeps in screen
-	const int right = x + width;
+	const float right = x + width;
 	if (x < 0)
 	{
 		x = 0;
 		vx = 0;
 	}
-	else if (right >= Graphics::ScreenWidth)
+	else if (right >= float( Graphics::ScreenWidth))
 	{
-		x = (Graphics::ScreenWidth - 1) - width;
+		x = float (Graphics::ScreenWidth - 1) - width;
 		vx = 0;
 	}
 
@@ -21,9 +21,9 @@ void Circle::ClampToScreen()
 		y = 0;
 		vy = 0;
 	}
-	else if (bottom >= Graphics::ScreenHeight)
+	else if (bottom >= float( Graphics::ScreenHeight))
 	{
-		y = (Graphics::ScreenHeight - 1) - height;
+		y = float (Graphics::ScreenHeight - 1) - height;
 		vy = 0;
 	}
 
@@ -31,7 +31,9 @@ void Circle::ClampToScreen()
 
 void Circle::Draw(Graphics& gfx) const
 {
-	
+	const int x_int = int(x);
+	const int y_int = int(y);
+
 	gfx.PutPixel(x + 3, y + 0, 255, 255, 0);
 	gfx.PutPixel(x + 4, y + 0, 255, 255, 0);
 	gfx.PutPixel(x + 5, y + 0, 255, 255, 0);
@@ -63,22 +65,22 @@ void Circle::Draw(Graphics& gfx) const
 		
 }
 
-int Circle::GetX() const
+float Circle::GetX() const
 {
 	return x;
 }
 
-int Circle::GetY() const
+float Circle::GetY() const
 {
 	return y;
 }
 
-int Circle::GetWidth() const
+float Circle::GetWidth() const
 {
 	return width;
 }
 
-int Circle::GetHeight() const
+float Circle::GetHeight() const
 {
 	return height;
 }

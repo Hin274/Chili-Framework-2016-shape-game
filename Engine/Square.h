@@ -6,19 +6,19 @@ class Square
 public:
 	void ClampToScreen();
 	void Draw(Graphics& gfx) const;
-	int GetX() const;
-	int GetY() const;
-	int GetWidth() const;
-	int GetHeight() const;
+	float GetX() const;
+	float GetY() const;
+	float GetWidth() const;
+	float GetHeight() const;
 	void Control(const Keyboard& kbd);
 
 private:
-	int x = 400;
-	int y = 300;
-	static constexpr int width = 10;
-	static constexpr int height = 10;
-	int vx = 0;
-	int vy = 0;
+	float x = 400.0f;
+	float y = 300.0f;
+	static constexpr float width = 10.0f;
+	static constexpr float height = 10.0f;
+	float vx = 0.0f;
+	float vy = 0.0f;
 	bool inhibitup = false;
 	bool inhibitdown = false;
 	bool inhibitright = false;

@@ -57,9 +57,9 @@ private:
 	std::mt19937 rdt;
 	std::mt19937 rds;
 	std::mt19937 rdst;
-	std::uniform_int_distribution<int>xDist;
-	std::uniform_int_distribution<int>yDist;
-	std::uniform_int_distribution<int>vDist;
+	std::uniform_real_distribution<float>xDist;
+	std::uniform_real_distribution<float>yDist;
+	std::uniform_real_distribution<float>vDist;
 	Circle circle;
 	Square square;
 	Triangle triangle;
