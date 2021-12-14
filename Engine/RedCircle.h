@@ -13,10 +13,10 @@ public:
 	bool collect(const Circle& circle);
 	bool Collected() const;
 private:
-	float x;
-	float y;
-	float vx;
-	float vy;
+	float x = 0.0f;
+	float y = 0.0f;
+	float vx = 0.0f;
+	float vy = 0.0f;
 	static constexpr float width = 10.0f;
 	static constexpr float height = 10.0f;
 	bool collected = false;

@@ -71,6 +71,8 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	const float dt = ft.Mark();
+
 		if (startGame && !gameOver) {
 
 		circle.Control(wnd.kbd);
@@ -92,7 +94,7 @@ void Game::UpdateModel()
 			redtriangle[i].Movement();
 		}
 		for (int i = 0; i < nrst; i++) {
-			redstar[i].Movement();
+			redstar[i].Movement(dt);
 		}
 
 		}

@@ -33,6 +33,7 @@
 #include "RedStar.h"
 #include "ProgressBar.h"
 #include "DrawGameTitles.h"
+#include "FrameTimer.h"
 
 class Game
 {
@@ -60,6 +61,7 @@ private:
 	std::uniform_real_distribution<float>xDist;
 	std::uniform_real_distribution<float>yDist;
 	std::uniform_real_distribution<float>vDist;
+	FrameTimer ft;
 	Circle circle;
 	Square square;
 	Triangle triangle;

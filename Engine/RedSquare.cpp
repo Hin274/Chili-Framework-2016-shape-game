@@ -73,7 +73,7 @@ void RedSquare::Movement()
 		vx = -vx;
 	}
 
-	const int bottom = y + height;
+	const float bottom = y + height;
 	if (y < 0)
 	{
 		y = 0;
