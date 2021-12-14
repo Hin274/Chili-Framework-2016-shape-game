@@ -544,8 +544,8 @@ void RedStar::Draw(Graphics& gfx) const
 
 void RedStar::Movement(float dt)
 {
-	x += vx;
-	y += vy;
+	x += vx *dt;
+	y += vy *dt;
 
 	const float right = x + width;
 	if (x < 0)

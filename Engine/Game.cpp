@@ -39,7 +39,7 @@ Game::Game( MainWindow& wnd )
 	rdst(rd()),
 	xDist(0,770),
 	yDist(0,570),
-	vDist(-2.5f,2.5f),
+	vDist(-2.5f*60.0f,2.5f*60.f),
 	progressbar(20,20)
 	
 
@@ -85,13 +85,13 @@ void Game::UpdateModel()
 		triangle.ClampToScreen();
 
 		for (int i = 0; i < nrc; i++) {
-			redcircle[i].Movement();
+			redcircle[i].Movement(dt);
 		}
 		for (int i = 0; i < nrs; i++) {
-			redsquare[i].Movement();
+			redsquare[i].Movement(dt);
 		}
 		for (int i = 0; i < nrt; i++) {
-			redtriangle[i].Movement();
+			redtriangle[i].Movement(dt);
 		}
 		for (int i = 0; i < nrst; i++) {
 			redstar[i].Movement(dt);

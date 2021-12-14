@@ -56,10 +56,10 @@ void RedSquare::Draw(Graphics& gfx) const
 	gfx.PutPixel(x_int + 0, y_int + 0, 255, 0, 0);
 }
 
-void RedSquare::Movement()
+void RedSquare::Movement(float dt)
 {
-	x += vx;
-	y += vy;
+	x += vx*dt;
+	y += vy*dt;
 
 	const float right = x + width;
 	if (x < 0)

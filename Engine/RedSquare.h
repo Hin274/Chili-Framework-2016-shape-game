@@ -7,7 +7,7 @@ class RedSquare
 public:
 	void Init(float in_x, float in_y, float in_vx, float in_vy);
 	void Draw(Graphics& gfx) const;
-	void Movement();
+	void Movement(float dt);
 	void collection(const Square& square);
 	bool collect(const Square& square);
 	bool Collected() const;

@@ -45,10 +45,10 @@ void RedCircle::Draw(Graphics& gfx) const
 
 }
 
-void RedCircle::Movement()
+void RedCircle::Movement(float dt)
 {
-	x += vx;
-	y += vy;
+	x += vx*dt;
+	y += vy*dt;
 
 	const float right = x + width;
 	if (x < 0)

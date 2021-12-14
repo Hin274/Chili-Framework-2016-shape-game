@@ -45,10 +45,10 @@ void RedTriangle::Draw(Graphics& gfx) const
 	gfx.PutPixel(x_int + 5, y_int + 1, 255, 0, 0);
 }
 
-void RedTriangle::Movement()
+void RedTriangle::Movement(float dt)
 {
-	x += vx;
-	y += vy;
+	x += vx*dt;
+	y += vy*dt;
 
 	const float right = x + width;
 	if (x < 0)
