@@ -1,20 +1,20 @@
 #pragma once
 #include "Graphics.h"
 #include "Keyboard.h"
+#include "Vec2.h"
+
 class Square
 {
 public:
 	void ClampToScreen();
 	void Draw(Graphics& gfx) const;
-	float GetX() const;
-	float GetY() const;
+	Vec2 GetPos() const;
 	float GetWidth() const;
 	float GetHeight() const;
 	void Control(const Keyboard& kbd);
 
 private:
-	float x = 400.0f;
-	float y = 300.0f;
+	Vec2 pos = Vec2 (400.0f, 300.0f);
 	static constexpr float width = 10.0f;
 	static constexpr float height = 10.0f;
 	float vx = 0.0f;

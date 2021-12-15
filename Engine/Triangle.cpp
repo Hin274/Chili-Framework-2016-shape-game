@@ -3,35 +3,35 @@
 void Triangle::ClampToScreen()
 {
 	//keep triangle in screen
-	const float right = x + width;
-	if (x < 0)
+	const float right = pos.x + width;
+	if (pos.x < 0)
 	{
-		x = 0;
+		pos.x = 0;
 		vx = 0;
 	}
 	else if (right >= float( Graphics::ScreenWidth))
 	{
-		x = float (Graphics::ScreenWidth - 1) - width;
+		pos.x = float (Graphics::ScreenWidth - 1) - width;
 		vx = 0;
 	}
 
-	const float bottom = y + height;
-	if (y < 0)
+	const float bottom = pos.y + height;
+	if (pos.y < 0)
 	{
-		y = 0;
+		pos.y = 0;
 		vy = 0;
 	}
 	else if (bottom >= float( Graphics::ScreenHeight))
 	{
-		y = float(Graphics::ScreenHeight - 1) - height;
+		pos.y = float(Graphics::ScreenHeight - 1) - height;
 		vy = 0;
 	}
 }
 
 void Triangle::Draw(Graphics& gfx) const
 {
-	const int x_int = int(x);
-	const int y_int = int(y);
+	const int x_int = int(pos.x);
+	const int y_int = int(pos.y);
 
 	gfx.PutPixel(x_int + 0, y_int + 10, 255, 255, 0);
 	gfx.PutPixel(x_int + 1, y_int + 10, 255, 255, 0);
@@ -66,15 +66,11 @@ void Triangle::Draw(Graphics& gfx) const
 	
 }
 
-float Triangle::GetX() const
+Vec2 Triangle::GetPos() const
 {
-	return x;
+	return pos;
 }
 
-float Triangle::GetY() const
-{
-	return y;
-}
 
 float Triangle::GetWidth() const
 {
@@ -89,8 +85,8 @@ float Triangle::GetHeight() const
 void Triangle::Control(const Keyboard& kbd)
 {
 	//triangle movement speed up and slow down
-	x = x + vx;
-	y = y + vy;
+	pos.x = pos.x + vx;
+	pos.y = pos.y + vy;
 
 	if (kbd.KeyIsPressed(VK_RIGHT))
 	{
