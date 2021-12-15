@@ -78,16 +78,16 @@ void RedCircle::Movement(float dt)
 
 void RedCircle::collection(const Circle&circle)
 {
-	const float circleright = circle.GetX() + circle.GetWidth();
-	const float circlebottom = circle.GetY() + circle.GetHeight();
+	const float circleright = circle.GetPos().x + circle.GetWidth();
+	const float circlebottom = circle.GetPos().y + circle.GetHeight();
 	const float redcircleright = x + width;
 	const float redcirclebottom = y + height;
 
 	if (
 		circleright >= x &&
-		circle.GetX() <= redcircleright &&
+		circle.GetPos().x <= redcircleright &&
 		circlebottom >= y &&
-		circle.GetY() <= redcirclebottom)
+		circle.GetPos().y <= redcirclebottom)
 	{
 		collected = true;
 	}
@@ -96,16 +96,16 @@ void RedCircle::collection(const Circle&circle)
 
 bool RedCircle::collect(const Circle& circle)
 {
-	const float circleright = circle.GetX() + circle.GetWidth();
-	const float circlebottom = circle.GetY() + circle.GetHeight();
+	const float circleright = circle.GetPos().x + circle.GetWidth();
+	const float circlebottom = circle.GetPos().y + circle.GetHeight();
 	const float redcircleright = x + width;
 	const float redcirclebottom = y + height;
 
 	return
 		circleright >= x &&
-		circle.GetX() <= redcircleright &&
+		circle.GetPos().x <= redcircleright &&
 		circlebottom >= y &&
-		circle.GetY() <= redcirclebottom;
+		circle.GetPos().y <= redcirclebottom;
 }
 
 bool RedCircle::Collected() const

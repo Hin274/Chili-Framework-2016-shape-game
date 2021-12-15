@@ -575,42 +575,42 @@ void RedStar::Movement(float dt)
 
 bool RedStar::Collide(const Circle& circle)
 {
-	const float circleright = circle.GetX() + circle.GetWidth();
-	const float circlebottom = circle.GetY() + circle.GetHeight();
+	const float circleright = circle.GetPos().x + circle.GetWidth();
+	const float circlebottom = circle.GetPos().y + circle.GetHeight();
 	const float redstarright = x + width;
 	const float redstarbottom = y + height;
 
 	return
 		circleright >= x &&
-		circle.GetX() <= redstarright &&
+		circle.GetPos().x <= redstarright &&
 		circlebottom >= y &&
-		circle.GetY() <= redstarbottom;
+		circle.GetPos().y <= redstarbottom;
 }
 
 bool RedStar::Collide(const Square& square)
 {
-	const float squareright = square.GetX() + square.GetWidth();
-	const float squarebottom = square.GetY() + square.GetHeight();
+	const float squareright = square.GetPos().x + square.GetWidth();
+	const float squarebottom = square.GetPos().y + square.GetHeight();
 	const float redstarright = x + width;
 	const float redstarbottom = y + height;
 
 	return
 		squareright >= x &&
-		square.GetX() <= redstarright &&
+		square.GetPos().x <= redstarright &&
 		squarebottom >= y &&
-		square.GetY() <= redstarbottom;
+		square.GetPos().y <= redstarbottom;
 }
 
 bool RedStar::Collide(const Triangle& triangle)
 {
-	const float triangleright = triangle.GetX() + triangle.GetWidth();
-	const float trianglebottom = triangle.GetY() + triangle.GetHeight();
+	const float triangleright = triangle.GetPos().x + triangle.GetWidth();
+	const float trianglebottom = triangle.GetPos().y + triangle.GetHeight();
 	const float redstarright = x + width;
 	const float redstarbottom = y + height;
 
 	return
 		triangleright >= x &&
-		triangle.GetX() <= redstarright &&
+		triangle.GetPos().x <= redstarright &&
 		trianglebottom >= y &&
-		triangle.GetY() <= redstarbottom;
+		triangle.GetPos().y <= redstarbottom;
 }

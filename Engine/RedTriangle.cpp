@@ -78,16 +78,16 @@ void RedTriangle::Movement(float dt)
 
 void RedTriangle::collection(const Triangle& triangle)
 {
-	const float triangleright = triangle.GetX() + triangle.GetWidth();
-	const float trianglebottom = triangle.GetY() + triangle.GetHeight();
+	const float triangleright = triangle.GetPos().x + triangle.GetWidth();
+	const float trianglebottom = triangle.GetPos().y + triangle.GetHeight();
 	const float redtriangleright = x + width;
 	const float redtrianglebottom = y + height;
 
 	if (
 		triangleright >= x &&
-		triangle.GetX() <= redtriangleright &&
+		triangle.GetPos().x <= redtriangleright &&
 		trianglebottom >= y &&
-		triangle.GetY() <= redtrianglebottom
+		triangle.GetPos().y <= redtrianglebottom
 		)
 	{
 		collected = true;
@@ -96,16 +96,16 @@ void RedTriangle::collection(const Triangle& triangle)
 
 bool RedTriangle::collect(const Triangle& triangle)
 {
-	const float triangleright = triangle.GetX() + triangle.GetWidth();
-	const float trianglebottom = triangle.GetY() + triangle.GetHeight();
+	const float triangleright = triangle.GetPos().x + triangle.GetWidth();
+	const float trianglebottom = triangle.GetPos().y + triangle.GetHeight();
 	const float redtriangleright = x + width;
 	const float redtrianglebottom = y + height;
 
 	return
 		triangleright >= x &&
-		triangle.GetX() <= redtriangleright &&
+		triangle.GetPos().x <= redtriangleright &&
 		trianglebottom >= y &&
-		triangle.GetY() <= redtrianglebottom;
+		triangle.GetPos().y <= redtrianglebottom;
 }
 
 bool RedTriangle::Collected() const

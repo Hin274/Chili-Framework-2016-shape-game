@@ -89,16 +89,16 @@ void RedSquare::Movement(float dt)
 
 void RedSquare::collection(const Square& square)
 {
-	const float squareright = square.GetX() + square.GetWidth();
-	const float squarebottom = square.GetY() + square.GetHeight();
+	const float squareright = square.GetPos().x + square.GetWidth();
+	const float squarebottom = square.GetPos().y + square.GetHeight();
 	const float redsquareright = x + width;
 	const float redsquarebottom = y + height;
 
 	if (
 		squareright >= x &&
-		square.GetX() <= redsquareright &&
+		square.GetPos().x <= redsquareright &&
 		squarebottom >= y &&
-		square.GetY() <= redsquarebottom
+		square.GetPos().y <= redsquarebottom
 		)
 	{
 		collected = true;
@@ -107,16 +107,16 @@ void RedSquare::collection(const Square& square)
 
 bool RedSquare::collect(const Square& square)
 {
-	const float squareright = square.GetX() + square.GetWidth();
-	const float squarebottom = square.GetY() + square.GetHeight();
+	const float squareright = square.GetPos().x + square.GetWidth();
+	const float squarebottom = square.GetPos().y + square.GetHeight();
 	const float redsquareright = x + width;
 	const float redsquarebottom = y + height;
 
 	return
 		squareright >= x &&
-		square.GetX() <= redsquareright &&
+		square.GetPos().x <= redsquareright &&
 		squarebottom >= y &&
-		square.GetY() <= redsquarebottom;
+		square.GetPos().y <= redsquarebottom;
 }
 
 bool RedSquare::Collected() const
