@@ -76,12 +76,15 @@ void Game::UpdateModel()
 		if (startGame && !gameOver) {
 
 		circle.Control(wnd.kbd,dt);
+		circle.Control(wnd.mouse, dt);
 		circle.ClampToScreen();
 
 		square.Control(wnd.kbd,dt);
+		square.Control(wnd.mouse, dt);
 		square.ClampToScreen();
 
 		triangle.Control(wnd.kbd,dt);
+		triangle.Control(wnd.mouse, dt);
 		triangle.ClampToScreen();
 
 		for (int i = 0; i < nrc; i++) {
