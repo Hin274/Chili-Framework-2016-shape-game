@@ -109,3 +109,17 @@ void Circle::Control(const Keyboard& kbd,float dt)
 
 }
 
+void Circle::Control(const Mouse& mouse, float dt)
+{
+	if (mouse.LeftIsPressed())
+	{
+		const Vec2 center = pos + Vec2(float(width) / 2.0f, float(height) / 2.0f);
+		const Vec2 toPointer = Vec2(float(mouse.GetPosX()), float(mouse.GetPosY()))-center;
+		if (toPointer.GetLengthsq()>2.0f)
+		{
+			pos += toPointer.GetNormalized() * speed * dt;
+		}
+	}
+
+}
+

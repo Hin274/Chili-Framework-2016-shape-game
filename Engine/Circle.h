@@ -2,6 +2,7 @@
 #include "Graphics.h"
 #include "Keyboard.h"
 #include "Vec2.h"
+#include "Mouse.h"
 
 class Circle
 {
@@ -12,6 +13,7 @@ public:
 	float GetWidth() const;
 	float GetHeight() const;
 	void Control(const Keyboard& kbd,float dt);
+	void Control(const Mouse& mouse, float dt);
 
 private:
 	Vec2 pos = Vec2(400.0f, 300.0f);
