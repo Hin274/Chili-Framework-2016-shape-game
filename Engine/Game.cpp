@@ -46,16 +46,16 @@ Game::Game( MainWindow& wnd )
 	//generates the random placement of the redshapes
 {
 	for (int i = 0; i < nrc; i++) {
-		redcircle[i].Init(xDist(rdc), yDist(rdc), vDist(rdc), vDist(rdc));
+		redcircle[i].Init(Vec2(xDist(rdc), yDist(rdc)),Vec2( vDist(rdc), vDist(rdc)));
 	}
 	for (int i = 0; i < nrt; i++) {
-		redtriangle[i].Init(xDist(rdt), yDist(rdt), vDist(rdt), vDist(rdt));
+		redtriangle[i].Init(Vec2(xDist(rdt), yDist(rdt)), Vec2(vDist(rdt), vDist(rdt)));
 	}
 	for (int i = 0; i < nrs; i++) {
-		redsquare[i].Init(xDist(rds), yDist(rds), vDist(rds), vDist(rds));
+		redsquare[i].Init(Vec2(xDist(rds), yDist(rds)), Vec2( vDist(rds), vDist(rds)));
 	}
 	for (int i = 0; i < nrst; i++) {
-		redstar[i].Init(xDist(rdst), yDist(rdst), vDist(rdst), vDist(rdst));
+		redstar[i].Init(Vec2(xDist(rdst), yDist(rdst)),Vec2( vDist(rdst), vDist(rdst)));
 	}
 }
 
@@ -162,7 +162,7 @@ void Game::ComposeFrame()
 				{
 					if (redsquare[i].collect(square))
 					{	
-						redsquare[i].Init(xDist(rds), yDist(rds), vDist(rds), vDist(rds));
+						redsquare[i].Init(Vec2(xDist(rds), yDist(rds)),Vec2( vDist(rds), vDist(rds)));
 						progressbar.IncreaseBar();
 						totalcollected++;
 					}square.Draw(gfx);
@@ -173,7 +173,7 @@ void Game::ComposeFrame()
 					if (redtriangle[i].collect(triangle))
 					{	
 						
-						redtriangle[i].Init(xDist(rdt), yDist(rdt), vDist(rdt), vDist(rdt));
+						redtriangle[i].Init(Vec2(xDist(rdt), yDist(rdt)), Vec2( vDist(rdt), vDist(rdt)));
 						progressbar.IncreaseBar();
 						totalcollected++;
 					}
@@ -185,7 +185,7 @@ void Game::ComposeFrame()
 					if (redcircle[i].collect(circle))
 					{
 						
-						redcircle[i].Init(xDist(rdc), yDist(rdc), vDist(rdc), vDist(rdc));
+						redcircle[i].Init(Vec2(xDist(rdc), yDist(rdc)), Vec2( vDist(rdc), vDist(rdc)));
 						progressbar.IncreaseBar();
 						totalcollected++;
 					}
