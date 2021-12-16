@@ -81,7 +81,7 @@ void Game::UpdateModel()
 		square.Control(wnd.kbd,dt);
 		square.ClampToScreen();
 
-		triangle.Control(wnd.kbd);
+		triangle.Control(wnd.kbd,dt);
 		triangle.ClampToScreen();
 
 		for (int i = 0; i < nrc; i++) {
