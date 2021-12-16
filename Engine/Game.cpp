@@ -75,7 +75,7 @@ void Game::UpdateModel()
 
 		if (startGame && !gameOver) {
 
-		circle.Control(wnd.kbd);
+		circle.Control(wnd.kbd,dt);
 		circle.ClampToScreen();
 
 		square.Control(wnd.kbd);
