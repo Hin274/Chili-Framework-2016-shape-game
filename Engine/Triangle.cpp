@@ -7,24 +7,20 @@ void Triangle::ClampToScreen()
 	if (pos.x < 0)
 	{
 		pos.x = 0;
-		vx = 0;
 	}
 	else if (right >= float( Graphics::ScreenWidth))
 	{
 		pos.x = float (Graphics::ScreenWidth - 1) - width;
-		vx = 0;
 	}
 
 	const float bottom = pos.y + height;
 	if (pos.y < 0)
 	{
 		pos.y = 0;
-		vy = 0;
 	}
 	else if (bottom >= float( Graphics::ScreenHeight))
 	{
 		pos.y = float(Graphics::ScreenHeight - 1) - height;
-		vy = 0;
 	}
 }
 
@@ -82,72 +78,30 @@ float Triangle::GetHeight() const
 	return height;
 }
 
-void Triangle::Control(const Keyboard& kbd)
+void Triangle::Control(const Keyboard& kbd,float dt)
 {
-	//triangle movement speed up and slow down
-	pos.x = pos.x + vx;
-	pos.y = pos.y + vy;
+	Vec2 vel(0.0f, 0.0f);
+	pos.x = pos.x + vel.x;
+	pos.y = pos.y + vel.y;
 
 	if (kbd.KeyIsPressed(VK_RIGHT))
 	{
-		if (inhibitright) {
-
-		}
-		else {
-			vx += 1;
-			inhibitright = true;
-		}
-	}
-	else
-	{
-		inhibitright = false;
-
+			vel.x += 1;
 	}
 	if (kbd.KeyIsPressed(VK_LEFT))
 	{
-		if (inhibitleft)
-		{
-
-		}
-		else {
-			vx -= 1;
-			inhibitleft = true;
-		}
-	}
-	else
-	{
-		inhibitleft = false;
+			vel.x -= 1;
 	}
 	if (kbd.KeyIsPressed(VK_DOWN))
 	{
-		if (inhibitdown) {
-
-		}
-		else
-		{
-			vy += 1;
-			inhibitdown = true;
-		}
-	}
-	else {
-
-		inhibitdown = false;
+			vel.y += 1;
 	}
 
 	if (kbd.KeyIsPressed(VK_UP))
 	{
-		if (inhibitup) {
-
-		}
-		else {
-			vy -= 1;
-			inhibitup = true;
-		}
+			vel.y -= 1;
 	}
-	else {
-
-		inhibitup = false;
-	}
+	pos += vel.GetNormalized() * speed * dt;
 }
 
 

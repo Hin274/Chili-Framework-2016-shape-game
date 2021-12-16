@@ -81,7 +81,6 @@ float Circle::GetHeight() const
 void Circle::Control(const Keyboard& kbd,float dt)
 {
 	Vec2 vel(0.0f, 0.0f);
-	//circle movement speed up and slow down
 	pos.x = pos.x + vel.x;
 	pos.y = pos.y + vel.y;
 
@@ -93,10 +92,7 @@ void Circle::Control(const Keyboard& kbd,float dt)
 	{
 			vel.x -= 1.0f;
 	}
-	else
-	{
-		inhibitleft = false;
-	}
+	
 	if (kbd.KeyIsPressed(VK_DOWN))
 	{
 

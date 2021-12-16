@@ -78,7 +78,7 @@ void Game::UpdateModel()
 		circle.Control(wnd.kbd,dt);
 		circle.ClampToScreen();
 
-		square.Control(wnd.kbd);
+		square.Control(wnd.kbd,dt);
 		square.ClampToScreen();
 
 		triangle.Control(wnd.kbd);
