@@ -1,17 +1,15 @@
 #include "RedTriangle.h"
 
-void RedTriangle::Init(float in_x, float in_y, float in_vx, float in_vy)
+void RedTriangle::Init(const Vec2& pos_in, const Vec2& vel_in)
 {
-	x = in_x;
-	y = in_y;
-	vx = in_vx;
-	vy = in_vy;
+	pos = pos_in;
+	vel = vel_in;
 }
 
 void RedTriangle::Draw(Graphics& gfx) const
 {
-	const int x_int = int(x);
-	const int y_int = int(y);
+	const int x_int = int(pos.x);
+	const int y_int = int(pos.y);
 
 	gfx.PutPixel(x_int + 0, y_int + 10, 255, 0, 0);
 	gfx.PutPixel(x_int + 1, y_int + 10, 255, 0, 0);
@@ -47,31 +45,31 @@ void RedTriangle::Draw(Graphics& gfx) const
 
 void RedTriangle::Movement(float dt)
 {
-	x += vx*dt;
-	y += vy*dt;
+	pos.x += vel.x*dt;
+	pos.y += vel.y*dt;
 
-	const float right = x + width;
-	if (x < 0)
+	const float right = pos.x + width;
+	if (pos.x < 0)
 	{
-		x = 0;
-		vx = -vx;
+		pos.x = 0;
+		vel.x = -vel.x;
 	}
 	else if (right >= float( Graphics::ScreenWidth))
 	{
-		x = float (Graphics::ScreenWidth - 1) - width;
-		vx = -vx;
+		pos.x = float (Graphics::ScreenWidth - 1) - width;
+		vel.x = -vel.x;
 	}
 
-	const float bottom = y + height;
-	if (y < 0)
+	const float bottom = pos.y + height;
+	if (pos.y < 0)
 	{
-		y = 0;
-		vy = -vy;
+		pos.y = 0;
+		vel.y = -vel.y;
 	}
 	else if (bottom >= float(Graphics::ScreenHeight))
 	{
-		y = float (Graphics::ScreenHeight - 1) - height;
-		vy = -vy;
+		pos.y = float (Graphics::ScreenHeight - 1) - height;
+		vel.y = -vel.y;
 	}
 
 }
@@ -80,13 +78,13 @@ void RedTriangle::collection(const Triangle& triangle)
 {
 	const float triangleright = triangle.GetPos().x + triangle.GetWidth();
 	const float trianglebottom = triangle.GetPos().y + triangle.GetHeight();
-	const float redtriangleright = x + width;
-	const float redtrianglebottom = y + height;
+	const float redtriangleright = pos.x + width;
+	const float redtrianglebottom = pos.y + height;
 
 	if (
-		triangleright >= x &&
+		triangleright >= pos.x &&
 		triangle.GetPos().x <= redtriangleright &&
-		trianglebottom >= y &&
+		trianglebottom >= pos.y &&
 		triangle.GetPos().y <= redtrianglebottom
 		)
 	{
@@ -98,13 +96,13 @@ bool RedTriangle::collect(const Triangle& triangle)
 {
 	const float triangleright = triangle.GetPos().x + triangle.GetWidth();
 	const float trianglebottom = triangle.GetPos().y + triangle.GetHeight();
-	const float redtriangleright = x + width;
-	const float redtrianglebottom = y + height;
+	const float redtriangleright = pos.x + width;
+	const float redtrianglebottom = pos.y + height;
 
 	return
-		triangleright >= x &&
+		triangleright >= pos.x &&
 		triangle.GetPos().x <= redtriangleright &&
-		trianglebottom >= y &&
+		trianglebottom >= pos.y &&
 		triangle.GetPos().y <= redtrianglebottom;
 }
 

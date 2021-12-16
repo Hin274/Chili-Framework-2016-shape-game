@@ -1,17 +1,15 @@
 #include "RedSquare.h"
 
-void RedSquare::Init(float in_x, float in_y, float in_vx, float in_vy)
+void RedSquare::Init(const Vec2& pos_in, const Vec2& vel_in)
 {
-	x = in_x;
-	y = in_y;
-	vx = in_vx;
-	vy = in_vy;
+	pos = pos_in;
+	vel = vel_in;
 }
 
 void RedSquare::Draw(Graphics& gfx) const
 {
-	const int x_int = int(x);
-	const int y_int = int(y);
+	const int x_int = int(pos.x);
+	const int y_int = int(pos.y);
 
 	gfx.PutPixel(x_int + 0, y_int + 0, 255, 0, 0);
 	gfx.PutPixel(x_int + 1, y_int + 0, 255, 0, 0);
@@ -58,31 +56,31 @@ void RedSquare::Draw(Graphics& gfx) const
 
 void RedSquare::Movement(float dt)
 {
-	x += vx*dt;
-	y += vy*dt;
+	pos.x += vel.x*dt;
+	pos.y += vel.y*dt;
 
-	const float right = x + width;
-	if (x < 0)
+	const float right = pos.x + width;
+	if (pos.x < 0)
 	{
-		x = 0;
-		vx = -vx;
+		pos.x = 0;
+		vel.x = -vel.x;
 	}
 	else if (right >= float(Graphics::ScreenWidth))
 	{
-		x = float(Graphics::ScreenWidth - 1) - width;
-		vx = -vx;
+		pos.x = float(Graphics::ScreenWidth - 1) - width;
+		vel.x = -vel.x;
 	}
 
-	const float bottom = y + height;
-	if (y < 0)
+	const float bottom = pos.y + height;
+	if (pos.y < 0)
 	{
-		y = 0;
-		vy = -vy;
+		pos.y = 0;
+		vel.y = -vel.y;
 	}
 	else if (bottom >= float( Graphics::ScreenHeight))
 	{
-		y = float (Graphics::ScreenHeight - 1) - height;
-		vy = -vy;
+		pos.y = float (Graphics::ScreenHeight - 1) - height;
+		vel.y = -vel.y;
 	}
 
 }
@@ -91,13 +89,13 @@ void RedSquare::collection(const Square& square)
 {
 	const float squareright = square.GetPos().x + square.GetWidth();
 	const float squarebottom = square.GetPos().y + square.GetHeight();
-	const float redsquareright = x + width;
-	const float redsquarebottom = y + height;
+	const float redsquareright = pos.x + width;
+	const float redsquarebottom = pos.y + height;
 
 	if (
-		squareright >= x &&
+		squareright >= pos.x &&
 		square.GetPos().x <= redsquareright &&
-		squarebottom >= y &&
+		squarebottom >= pos.y &&
 		square.GetPos().y <= redsquarebottom
 		)
 	{
@@ -109,13 +107,13 @@ bool RedSquare::collect(const Square& square)
 {
 	const float squareright = square.GetPos().x + square.GetWidth();
 	const float squarebottom = square.GetPos().y + square.GetHeight();
-	const float redsquareright = x + width;
-	const float redsquarebottom = y + height;
+	const float redsquareright = pos.x + width;
+	const float redsquarebottom = pos.y + height;
 
 	return
-		squareright >= x &&
+		squareright >= pos.x &&
 		square.GetPos().x <= redsquareright &&
-		squarebottom >= y &&
+		squarebottom >= pos.y &&
 		square.GetPos().y <= redsquarebottom;
 }
 
